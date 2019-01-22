@@ -34,8 +34,8 @@ export class RestService {
     );
   }
 
-  getUserRepositories(login: string): Observable<Repository[]> {
-    const url = `${this.userProfileEndpoint}/${login}/repos`;
+  getUserRepositories(login: string, starred = false): Observable<Repository[]> {
+    const url = `${this.userProfileEndpoint}/${login}/${starred ? 'starred' : 'repos'}`;
     return this.http.get(url).pipe(
       map((data: Repository[]) => data as Repository[])
     );

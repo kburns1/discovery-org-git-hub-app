@@ -84,7 +84,8 @@ export interface Repository {
 })
 export class UserRepositoriesComponent implements OnInit {
   @Input() user: User;
-  @Input() label = 'User Repositories';
+  @Input() label: string;
+  @Input() starred = false;
   repositories: Repository[];
 
   constructor(
@@ -92,12 +93,10 @@ export class UserRepositoriesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.rest.getUserRepositories(this.user.login).subscribe(
+    this.rest.getUserRepositories(this.user.login, this.starred).subscribe(
       ((repositories: Repository[]) => {
-        console.log('repositories!', repositories);
         this.repositories = repositories;
       })
     );
   }
-
 }

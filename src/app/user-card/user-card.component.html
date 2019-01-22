@@ -5,4 +5,5 @@
 <span>
     Username: {{ user.login }}
 </span>
-<app-user-repositories [user]="user"></app-user-repositories>
+<app-user-repositories [user]="user" label="User Repositories"></app-user-repositories>
+<app-user-repositories [user]="user" label="Starred Repositories" [starred]="true" ></app-user-repositories>
