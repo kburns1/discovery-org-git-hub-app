@@ -1,9 +1,8 @@
-import { User } from './user-search/user-search.component';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Repository } from './user-repositories/user-repositories.component';
+import { Repository, User } from './models';
 
 export interface ResultPage {
   total_count: number;

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../user-search/user-search.component';
 import { RestService } from '../rest.service';
+import { User } from '../models';
 
 @Component({
   selector: 'app-user-card',

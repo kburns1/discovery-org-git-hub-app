@@ -1,30 +1,24 @@
 <div class="search-container">
-  <div class="search-controls">
+  <div fxLayout="row" class="search-controls">
     <label>
-        User Search!:
-        <input type="text" [formControl]="searchInput">
-      </label>
-      <div class="form-group">
-        <button (click)="applySearch()" class="btn btn-dark form-group">Search</button>
-      </div>
+      User Search:
+      <input type="text" [formControl]="searchInput">
+    </label>
+    <button (click)="applySearch()" class="btn btn-dark form-group">Search</button>
   </div>
-
-  <div class="search-results" *ngIf="(users$ | async).length > 0">
+  <div class="search-results" *ngIf="(users$ | async)?.length > 0">
     <div fxLayout="row" fxLayoutGap="32px">
       <div fxLayout="column">
         USER DETAILS
       </div>
-
       <div fxLayout="column">
          USER REPOS
       </div>
-
       <div fxLayout="column">
         STARRED REPOS
       </div>
     </div>
-
-    <app-user-card class="associate-opportunity-card"
+    <app-user-card
         *ngFor="let user of users$ | async; let i = index"
         [user]="user">
     </app-user-card>
