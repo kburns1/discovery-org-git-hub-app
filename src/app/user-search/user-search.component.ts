@@ -23,12 +23,12 @@ export interface User {
   type: string;
   site_admin: boolean;
   name: string;
-  company: string;
+  company?: any;
   blog: string;
-  location: string;
-  email: string;
-  hireable: boolean;
-  bio: string;
+  location?: any;
+  email?: any;
+  hireable?: any;
+  bio?: any;
   public_repos: number;
   public_gists: number;
   followers: number;
@@ -43,7 +43,6 @@ export interface User {
   styleUrls: ['./user-search.component.scss']
 })
 export class UserSearchComponent implements OnInit {
-  title = `Kevin's GitHub User Search Angular App`;
   searchInput = new FormControl('');
   users$: Observable<User[]>;
 
@@ -59,5 +58,7 @@ export class UserSearchComponent implements OnInit {
 
   ngOnInit() {
     console.log('init pls');
+    this.searchInput.setValue('kburns1');
+    this.applySearch();
   }
 }

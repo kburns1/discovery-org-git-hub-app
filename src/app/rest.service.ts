@@ -15,6 +15,7 @@ export interface ResultPage {
 })
 export class RestService {
   userSearchEndpoint = 'https://api.github.com/search/users';
+  userProfileEndpoint = 'https://api.github.com/users';
   constructor(private http: HttpClient) {}
 
   getUsers(search: string): Observable<User[]> {
@@ -25,9 +26,16 @@ export class RestService {
     );
   }
 
-  private extractResponseData(res: Response): ResultPage {
+  getUser(login: string): Observable<User> {
+    const url = `${this.userProfileEndpoint}/${login}`;
+    return this.http.get(url).pipe(
+      map((data: User) => data as User)
+    );
+  }
+
+  private extractResponseData(res: Response) {
     const body = res;
-    return (body || { }) as ResultPage;
+    return (body || { });
   }
 }
 

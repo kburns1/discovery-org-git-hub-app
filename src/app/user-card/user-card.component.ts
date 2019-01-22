@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user-search/user-search.component';
+import { RestService } from '../rest.service';
 
 @Component({
   selector: 'app-user-card',
@@ -9,9 +10,16 @@ import { User } from '../user-search/user-search.component';
 export class UserCardComponent implements OnInit {
 
   @Input() user: User;
-  constructor() { }
+  constructor(
+    private rest: RestService
+  ) { }
 
   ngOnInit() {
-    console.log(this.user);
+    this.rest.getUser(this.user.login).subscribe(
+      ((user: User) => {
+        console.log('card!', user);
+        this.user = user;
+      })
+    );
   }
 }
