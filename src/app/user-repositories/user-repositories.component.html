@@ -1,8 +1,8 @@
-<label>
-  {{ label }}
-</label>
 <ul>
   <li *ngFor="let repo of repositories; let i = index">
       <a href="{{ repo.html_url }}">{{ repo.name }}</a>
   </li>
 </ul>
+<div *ngIf="!!repositories && repositories.length === 0">
+  n/a
+</div>

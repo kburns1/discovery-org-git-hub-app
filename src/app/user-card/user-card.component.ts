@@ -17,7 +17,6 @@ export class UserCardComponent implements OnInit {
   ngOnInit() {
     this.rest.getUser(this.user.login).subscribe(
       ((user: User) => {
-        console.log('card!', user);
         this.user = user;
       })
     );

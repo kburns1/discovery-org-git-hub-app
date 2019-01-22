@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { UserRepositoriesComponent } from './user-repositories/user-repositories.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -21,14 +22,16 @@ import { UserRepositoriesComponent } from './user-repositories/user-repositories
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   exports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

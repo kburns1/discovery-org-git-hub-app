@@ -51,13 +51,11 @@ export class UserSearchComponent implements OnInit {
   ) {}
 
   applySearch() {
-    console.log('search: ', this.searchInput.value);
     const input = this.searchInput.value;
     this.users$ = this.rest.getUsers(input);
   }
 
   ngOnInit() {
-    console.log('init pls');
     this.searchInput.setValue('kburns1');
     this.applySearch();
   }

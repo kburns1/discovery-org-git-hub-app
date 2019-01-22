@@ -1,9 +1,28 @@
-<img [src]="user.avatar_url">
-<span>
-    Name: {{ user.name }}
-</span>
-<span>
-    Username: {{ user.login }}
-</span>
-<app-user-repositories [user]="user" label="User Repositories"></app-user-repositories>
-<app-user-repositories [user]="user" label="Starred Repositories" [starred]="true" ></app-user-repositories>
+<div fxLayout="row" fxLayoutGap="32px" class="cardInner">
+  <!-- USER DETAILS -->
+  <div fxLayout="column">
+      <div>
+        <a href="{{ user.html_url }}">
+          <img [src]="user.avatar_url" class="avatar">
+        </a>
+      </div>
+      <div>
+        <p>
+          Username: <a href="{{ user.html_url }}">{{ user.login }}</a>
+        </p>
+        <p *ngIf="user.name">
+          Name: <a href="{{ user.html_url }}">{{ user.name }}</a>
+        </p>
+      </div>
+  </div>
+
+  <!-- USER REPOS -->
+  <div fxLayout="column">
+    <app-user-repositories [user]="user" label="User Repositories"></app-user-repositories>
+  </div>
+
+  <!-- USER STARRED REPOS -->
+  <div fxLayout="column">
+    <app-user-repositories [user]="user" label="Starred Repositories" [starred]="true" ></app-user-repositories>
+  </div>
+</div>

@@ -86,7 +86,7 @@ export class UserRepositoriesComponent implements OnInit {
   @Input() user: User;
   @Input() label: string;
   @Input() starred = false;
-  repositories: Repository[];
+  repositories: Repository[] = [];
 
   constructor(
     private rest: RestService
