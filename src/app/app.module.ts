@@ -7,12 +7,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { UserCardComponent } from './user-card/user-card.component';
+import { UserRepositoriesComponent } from './user-repositories/user-repositories.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserSearchComponent,
-    UserCardComponent
+    UserCardComponent,
+    UserRepositoriesComponent
   ],
   imports: [
     BrowserModule,

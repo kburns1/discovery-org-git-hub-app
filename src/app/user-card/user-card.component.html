@@ -1,15 +1,8 @@
+<img [src]="user.avatar_url">
 <span>
-    {{ user.name }}
+    Name: {{ user.name }}
 </span>
 <span>
-    {{ user.login }}
+    Username: {{ user.login }}
 </span>
-<span>
-    {{ user.avatar_url }}
-</span>
-<span>
-    {{ user.avatar_url }}
-</span>
-<span>
-    {{ user.avatar_url }}
-</span>
+<app-user-repositories [user]="user"></app-user-repositories>

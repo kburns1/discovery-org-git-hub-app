@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Repository } from './user-repositories/user-repositories.component';
 
 export interface ResultPage {
   total_count: number;
@@ -30,6 +31,13 @@ export class RestService {
     const url = `${this.userProfileEndpoint}/${login}`;
     return this.http.get(url).pipe(
       map((data: User) => data as User)
+    );
+  }
+
+  getUserRepositories(login: string): Observable<Repository[]> {
+    const url = `${this.userProfileEndpoint}/${login}/repos`;
+    return this.http.get(url).pipe(
+      map((data: Repository[]) => data as Repository[])
     );
   }
 

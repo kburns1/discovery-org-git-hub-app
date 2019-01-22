@@ -1,14 +1,14 @@
 <div class="search-container">
   <label>
-      User:
+      User Search:
       <input type="text" [formControl]="searchInput">
     </label>
     <div class="form-group">
       <button (click)="applySearch()" class="btn btn-dark">Search</button>
     </div>
-    <p>
+    <!-- <div>
       Value: {{ searchInput.value }}
-    </p>
+    </div> -->
     <div class="search-results">
       <app-user-card class="associate-opportunity-card"
           *ngFor="let user of users$ | async; let i = index"
