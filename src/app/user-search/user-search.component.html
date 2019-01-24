@@ -1,26 +1,22 @@
-<div class="search-container">
-  <div fxLayout="row" class="search-controls">
-    <label>
-      User Search:
-      <input type="text" [formControl]="searchInput">
-    </label>
-    <button (click)="applySearch()" class="btn btn-dark form-group">Search</button>
+<div>
+  <div fxLayout="row">
+    <mat-toolbar fxLayout="row" fxLayoutGap="25px" color="dark">
+      <label fxLayout="column">
+        User Search:
+        <input type="text" [formControl]="searchInput" placeholder="Username">
+      </label>
+      <button fxLayout="column" mat-flat-button color="primary" (click)="applySearch()">Search</button>
+    </mat-toolbar>
   </div>
-  <div class="search-results" *ngIf="(users$ | async)?.length > 0">
-    <div fxLayout="row" fxLayoutGap="32px">
-      <div fxLayout="column">
-        USER DETAILS
-      </div>
-      <div fxLayout="column">
-         USER REPOS
-      </div>
-      <div fxLayout="column">
-        STARRED REPOS
-      </div>
+  <div *ngIf="(users$ | async)?.length > 0">
+    <div fxLayout="row wrap" fxLayoutGap="20px grid">
+      <app-user-card
+          *ngFor="let user of users$ | async; let i = index"
+          [user]="user">
+      </app-user-card>
     </div>
-    <app-user-card
-        *ngFor="let user of users$ | async; let i = index"
-        [user]="user">
-    </app-user-card>
+  </div>
+  <div *ngIf="!(users$ | async)">
+    Please search by username
   </div>
 </div>

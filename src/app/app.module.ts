@@ -9,6 +9,7 @@ import { UserSearchComponent } from './user-search/user-search.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { UserRepositoriesComponent } from './user-repositories/user-repositories.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import * as MATERIAL from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MATERIAL.MatButtonModule,
+    MATERIAL.MatToolbarModule,
+    MATERIAL.MatCardModule
   ],
   exports: [
     BrowserModule,
@@ -31,7 +35,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MATERIAL.MatButtonModule,
+    MATERIAL.MatToolbarModule,
+    MATERIAL.MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

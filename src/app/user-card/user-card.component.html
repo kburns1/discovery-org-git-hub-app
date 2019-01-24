@@ -1,28 +1,14 @@
-<div fxLayout="row" fxLayoutGap="32px" class="cardInner">
-  <!-- USER DETAILS -->
-  <div fxLayout="column">
-      <div>
-        <a href="{{ user?.html_url }}">
-          <img [src]="user?.avatar_url" class="avatar">
-        </a>
-      </div>
-      <div>
-        <p>
-          Username: <a href="{{ user?.html_url }}">{{ user?.login }}</a>
-        </p>
-        <p *ngIf="user?.name">
-          Name: <a href="{{ user?.html_url }}">{{ user?.name }}</a>
-        </p>
-      </div>
-  </div>
 
-  <!-- USER REPOS -->
-  <div fxLayout="column">
-    <app-user-repositories [user]="user" label="User Repositories"></app-user-repositories>
-  </div>
-
-  <!-- USER STARRED REPOS -->
-  <div fxLayout="column">
-    <app-user-repositories [user]="user" label="Starred Repositories" [starred]="true" ></app-user-repositories>
-  </div>
+<div fxLayout="row" fxLayoutGap="200px">
+  <mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image" [ngStyle]="{ 'background-image': 'url(' + user?.avatar_url + ')'}"></div>
+      <mat-card-title><a href="{{ user?.html_url }}">{{ user?.login }}</a></mat-card-title>
+      <mat-card-subtitle>{{ user?.name }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <app-user-repositories [user]="user" label="User Repositories"></app-user-repositories>
+      <app-user-repositories [user]="user" label="Starred Repositories" [starred]="true" ></app-user-repositories>
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -25,7 +25,7 @@ export class UserSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchInput.setValue('kburns1');
+    // this.searchInput.setValue('kburns1');
     this.applySearch();
   }
 }
