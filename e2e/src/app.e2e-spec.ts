@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to discovery-org-git-hub-app!');
+    expect(page.getTitleText()).toEqual(`Welcome to Kevin's GitHub User Search Angular App!`);
   });
 
   afterEach(async () => {
