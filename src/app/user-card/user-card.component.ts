@@ -15,10 +15,12 @@ export class UserCardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.rest.getUser(this.user.login).subscribe(
-      ((user: User) => {
-        this.user = user;
-      })
-    );
+    if (!!this.user && !!this.user.login) {
+      this.rest.getUser(this.user.login).subscribe(
+        ((user: User) => {
+          this.user = user;
+        })
+      );
+    }
   }
 }

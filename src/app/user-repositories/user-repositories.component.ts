@@ -18,10 +18,12 @@ export class UserRepositoriesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.rest.getUserRepositories(this.user.login, this.starred).subscribe(
-      ((repositories: Repository[]) => {
-        this.repositories = repositories;
-      })
-    );
+    if (!!this.user && !!this.user.login) {
+      this.rest.getUserRepositories(this.user.login, this.starred).subscribe(
+        ((repositories: Repository[]) => {
+          this.repositories = repositories;
+        })
+      );
+    }
   }
 }

@@ -19,7 +19,9 @@ export class UserSearchComponent implements OnInit {
 
   applySearch() {
     const input = this.searchInput.value;
-    this.users$ = this.rest.getUsers(input);
+    if (!!input) {
+      this.users$ = this.rest.getUsers(input);
+    }
   }
 
   ngOnInit() {

@@ -2,16 +2,16 @@
   <!-- USER DETAILS -->
   <div fxLayout="column">
       <div>
-        <a href="{{ user.html_url }}">
-          <img [src]="user.avatar_url" class="avatar">
+        <a href="{{ user?.html_url }}">
+          <img [src]="user?.avatar_url" class="avatar">
         </a>
       </div>
       <div>
         <p>
-          Username: <a href="{{ user.html_url }}">{{ user.login }}</a>
+          Username: <a href="{{ user?.html_url }}">{{ user?.login }}</a>
         </p>
-        <p *ngIf="user.name">
-          Name: <a href="{{ user.html_url }}">{{ user.name }}</a>
+        <p *ngIf="user?.name">
+          Name: <a href="{{ user?.html_url }}">{{ user?.name }}</a>
         </p>
       </div>
   </div>
